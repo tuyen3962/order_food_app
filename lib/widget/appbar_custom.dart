@@ -60,8 +60,7 @@ class _AppBarCustomState extends State<AppBarCustom> {
           child: Text(
             widget.title ?? '',
             style: widget.titleStyle ??
-                StyleThemeData.styleSize18Weight600(
-                    color: appTheme.primaryColor),
+                StyleThemeData.bold18(color: appTheme.primaryColor),
             // TextStyle(
             //   fontSize: 28.fontSize,
             //   fontWeight: FontWeight.w700,

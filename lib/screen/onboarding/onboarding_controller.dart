@@ -54,9 +54,9 @@ class OnboardingController extends BaseController<OnboardingScreenState> {
   }
 
   @override
-  void onDispose() {
+  void dispose() {
     pageController.dispose();
     currentIndex.dispose();
-    super.onDispose();
+    super.dispose();
   }
 }

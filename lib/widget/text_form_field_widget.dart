@@ -66,7 +66,7 @@ class TextFormFieldWidget extends StatelessWidget {
       focusNode: focusNode,
       keyboardType: keyboardType,
       obscureText: passCheck == true ? obscure : false,
-      style: StyleThemeData.styleSize14Weight500(color: colorText),
+      style: StyleThemeData.bold14(color: colorText),
       cursorColor: cursorColor,
       inputFormatters: inputFormatters,
       onTap: onTap,
@@ -74,7 +74,7 @@ class TextFormFieldWidget extends StatelessWidget {
       minLines: minLines,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: StyleThemeData.styleSize14Weight500(
+        hintStyle: StyleThemeData.bold14(
             color: colorHintText ?? appTheme.greyscale300Color),
         prefixIcon: iconData != null
             ? Icon(iconData, color: appTheme.greyscale400Color)

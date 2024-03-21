@@ -39,8 +39,7 @@ class SelectedBorderBoxWidget extends StatelessWidget {
           children: [
             SvgPicture.asset(icons),
             SizedBox(width: 12.w),
-            Text(text,
-                style: textStyle ?? StyleThemeData.styleSize14Weight700()),
+            Text(text, style: textStyle ?? StyleThemeData.bold14()),
           ],
         ),
       ),

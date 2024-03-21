@@ -53,7 +53,7 @@ abstract class BasePageState<S extends StatefulWidget, C extends BaseController>
 
   @override
   void dispose() {
-    controller.onDispose();
+    controller.dispose();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }

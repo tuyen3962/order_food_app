@@ -105,4 +105,14 @@ abstract class BaseThemeData {
   Color greyColor = const Color(0xFF4E535F);
 
   Color backgroundBlackColor = const Color(0xFF1E1E2E);
+
+  Color backgrounTextField = const Color(0xFFF0F5FA);
+
+  Color hintTextField = const Color(0xFFA0A5BA);
+
+  Color borderCheckColor = const Color(0xFFE3EBF2);
+
+  Color rememberTextColor = const Color(0xFF7E8A97);
+
+  Color greyTextColor = const Color(0xFF646982);
 }

@@ -78,7 +78,7 @@ class DialogUtils {
                             Padding(
                               padding: padding(horizontal: 12),
                               child: Text(title ?? "apologize",
-                                  style: StyleThemeData.styleSize18Weight600(),
+                                  style: StyleThemeData.bold18(),
                                   textAlign: TextAlign.center),
                             ),
                             SizedBox(height: 8.h)
@@ -88,8 +88,7 @@ class DialogUtils {
                             child: Text(
                               content,
                               textAlign: TextAlign.center,
-                              style: contentStyle ??
-                                  StyleThemeData.styleSize14Weight500(),
+                              style: contentStyle ?? StyleThemeData.bold14(),
                             ),
                           ),
                           SizedBox(height: 24.h),
@@ -116,7 +115,7 @@ class DialogUtils {
                                 onTap: context.pop,
                                 child: Text(
                                   outlineText ?? 'cancel',
-                                  style: StyleThemeData.styleSize16Weight700()
+                                  style: StyleThemeData.bold16()
                                       .copyWith(color: appTheme.primaryColor),
                                 ),
                               ),
@@ -207,7 +206,7 @@ class DialogUtils {
           children: [
             ImageAssetCustom(imagePath: imagePath, size: 20),
             SizedBox(width: 8.w),
-            Text(text, style: StyleThemeData.styleSize16Weight700())
+            Text(text, style: StyleThemeData.bold16())
           ],
         ),
       );

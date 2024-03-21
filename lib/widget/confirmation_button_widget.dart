@@ -39,7 +39,7 @@ class ConfirmationButtonWidget extends StatelessWidget {
             : Text(
                 text,
                 style: textStyle ??
-                    StyleThemeData.styleSize14Weight700(
+                    StyleThemeData.bold14(
                         color: colorText ?? appTheme.whiteText),
                 textAlign: TextAlign.center,
               ),

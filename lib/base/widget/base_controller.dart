@@ -13,11 +13,13 @@ class BaseController<T extends State<StatefulWidget>> {
 
   BaseController(this.state) : context = state.context {
     onInit();
+    onReady();
   }
 
   void onInit() {}
+  void onReady() {}
 
-  void onDispose() {
+  void dispose() {
     for (final controller in streamCtrls) {
       controller.dispose();
     }

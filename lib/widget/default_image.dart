@@ -15,7 +15,7 @@ class DefaultImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ImageAssetCustom(
-      imagePath: ImagesAssets.imageIcon,
+      imagePath: ImagesAssets.bottomSplash,
       size: size,
       boxFit: fit,
     );

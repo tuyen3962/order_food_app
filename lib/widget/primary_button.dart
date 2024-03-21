@@ -13,8 +13,9 @@ class PrimaryButton extends StatelessWidget {
     this.isFullWidth = true,
     this.backgroundColor,
     this.weight,
-    this.isActive = false,
+    this.isActive = true,
     this.icon,
+    this.borderRadius = 1000,
   });
 
   final String text;
@@ -27,24 +28,25 @@ class PrimaryButton extends StatelessWidget {
   final Widget? icon;
   final bool isFullWidth;
   final bool isActive;
+  final double borderRadius;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: isActive ? null : onTap,
+      onTap: isActive ? onTap : null,
       child: Container(
         width: isFullWidth ? double.infinity : null,
         padding: buttonPadding,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: isActive
+          color: !isActive
               ? backgroundColor ?? appTheme.fadeBackgroundColor
               : backgroundColor ?? appTheme.primaryColor,
           border: Border.all(
-              color: isActive
+              color: !isActive
                   ? appTheme.fadeBackgroundColor
                   : appTheme.primaryColor),
-          borderRadius: BorderRadius.circular(1000),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: icon != null
             ? Row(

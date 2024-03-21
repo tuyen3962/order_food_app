@@ -7,13 +7,17 @@ class TextFieldNode {
   final errorValidate = ValueNotifier(false);
   final emptyError = ValueNotifier(false);
   final String? errorText;
+  final String? emptyText;
   final String initializeText;
+  late VoidCallback? onUnfocusListener = null;
 
   bool get isError => errorValidate.value;
 
   bool get isEmptyError => emptyError.value;
 
   String get text => textCtrl.text;
+
+  bool get isEmpty => textCtrl.text.isEmpty;
 
   set isError(bool value) {
     errorValidate.value = value;
@@ -24,21 +28,19 @@ class TextFieldNode {
   }
 
   TextFieldNode({
-    bool Function(String value)? fieldValidate,
+    bool Function(String value)? validateFieldError,
     this.errorText,
     VoidCallback? onListernText,
     this.initializeText = '',
+    this.emptyText = '',
     bool isRequired = false,
-    VoidCallback? onUnfocusListener,
   }) {
     textCtrl.text = initializeText;
     node.unfocusListener(() {
-      if (fieldValidate != null) {
-        errorValidate.value = fieldValidate(textCtrl.text);
+      if (validateFieldError != null) {
+        errorValidate.value = validateFieldError(textCtrl.text);
       }
-      if (onUnfocusListener != null) {
-        onUnfocusListener();
-      }
+      onUnfocusListener?.call();
       if (isRequired) {
         emptyError.value = textCtrl.text.isEmpty;
       }
@@ -50,6 +52,10 @@ class TextFieldNode {
         }
       });
     }
+  }
+
+  void onSetUnfocusListener(VoidCallback action) {
+    onUnfocusListener = action;
   }
 
   void dispose() {

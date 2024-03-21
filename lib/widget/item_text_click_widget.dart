@@ -33,7 +33,7 @@ class ItemTextClickWidget extends StatelessWidget {
               children: [
                 ImageAssetCustom(imagePath: image),
                 SizedBox(width: 16),
-                Text(text, style: StyleThemeData.styleSize14Weight500()),
+                Text(text, style: StyleThemeData.bold14()),
               ],
             ),
             toggle ??

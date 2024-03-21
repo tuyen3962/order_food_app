@@ -72,8 +72,7 @@ class OnboardingScreenState
                 onTap: controller.scrollToLastPage,
                 child: Padding(
                     padding: padding(top: 16),
-                    child: Text('Skip',
-                        style: StyleThemeData.styleSize16Weight400())),
+                    child: Text('Skip', style: StyleThemeData.regular16())),
               ),
             ),
           ),
@@ -92,9 +91,9 @@ class OnboardingScreenState
               imagePath: viewModel.imagePath, width: 240, height: 292),
         )),
         SizedBox(height: 63.h),
-        Text(viewModel.title, style: StyleThemeData.styleSize24Weight700()),
+        Text(viewModel.title, style: StyleThemeData.bold24()),
         SizedBox(height: 18.h),
-        Text(viewModel.content, style: StyleThemeData.styleSize16Weight400())
+        Text(viewModel.content, style: StyleThemeData.regular16())
       ],
     );
   }

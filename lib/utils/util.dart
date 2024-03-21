@@ -9,6 +9,13 @@ class Utils {
     return now.add(Duration(days: 7 - now.weekday));
   }
 
+  static bool _hasMatch(String? value, String pattern) {
+    return (value == null) ? false : RegExp(pattern).hasMatch(value);
+  }
+
+  static bool isEmail(String s) => _hasMatch(s,
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+
   // static Future<Uint8List?> getVideoThumbnailByFile(File file) async {
   //   return VideoCompress.getByteThumbnail(file.path, quality: 75);
   //   // return VideoThumbnail.thumbnailData(video: file.path, quality: 75);

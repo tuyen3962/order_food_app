@@ -3,7 +3,7 @@ import 'package:order_food_app/base/stream/base_stream_controller.dart';
 
 class BaseStreamBuilder<T> extends StatelessWidget {
   const BaseStreamBuilder({super.key, required this.controller, this.builder});
-  final BaseStreamController controller;
+  final BaseStreamController<T> controller;
   final Widget Function(T value)? builder;
 
   @override
@@ -26,8 +26,8 @@ class TwoBaseStreamBuilder<A, B> extends StatelessWidget {
       required this.secondController,
       this.builder});
 
-  final BaseStreamController firstController;
-  final BaseStreamController secondController;
+  final BaseStreamController<A> firstController;
+  final BaseStreamController<B> secondController;
   final Widget Function(A firstValue, B secondVal)? builder;
 
   @override
