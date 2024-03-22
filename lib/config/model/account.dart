@@ -1,49 +1,49 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:json_annotation/json_annotation.dart';
 
 part 'account.g.dart';
 
 @JsonSerializable()
 class Account {
-  String? uid;
-  @JsonKey(name: 'full_name')
+  String? id;
+  @JsonKey(name: 'fullname')
   String? fullName;
   String? email;
-  @JsonKey(name: 'avatar_url')
-  String? avatarUrl;
-  @JsonKey(name: 'phone_number')
+  @JsonKey(name: 'avatar')
+  String? avatat;
+  @JsonKey(name: 'phone')
   String? phoneNumber;
   @JsonKey(name: 'fcm_token')
   String? fcmToken;
-  @JsonKey(name: 'background_image')
-  String? backgroundImage;
+  String? description;
 
   Account({
-    this.uid,
+    this.id,
     this.fullName,
     this.email,
-    this.avatarUrl,
+    this.avatat,
     this.phoneNumber,
     this.fcmToken,
-    this.backgroundImage,
+    this.description,
   });
 
   Account copyWith({
-    String? uid,
+    String? id,
     String? fullName,
     String? email,
-    String? avatarUrl,
+    String? avatat,
     String? phoneNumber,
     String? fcmToken,
-    String? backgroundImage,
+    String? description,
   }) {
     return Account(
-      uid: uid ?? this.uid,
+      id: id ?? this.id,
       fullName: fullName ?? this.fullName,
       email: email ?? this.email,
-      avatarUrl: avatarUrl ?? this.avatarUrl,
+      avatat: avatat ?? this.avatat,
       phoneNumber: phoneNumber ?? this.phoneNumber,
       fcmToken: fcmToken ?? this.fcmToken,
-      backgroundImage: backgroundImage ?? this.backgroundImage,
+      description: description ?? this.description,
     );
   }
 

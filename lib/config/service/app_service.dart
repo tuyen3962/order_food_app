@@ -38,7 +38,8 @@ class AppService {
     locator.registerSingleton<IUploadRepository>(
         UploadRepository(serverService: server));
 
-    locator.registerSingleton<IAccountRepository>(AccountRepository());
+    locator.registerSingleton<IAccountRepository>(
+        AccountRepository(serverService: locator.get()));
 
     locator.registerSingleton<AccountService>(AccountService(
       storageService: locator.get(),

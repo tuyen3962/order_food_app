@@ -4,8 +4,8 @@ import 'package:order_food_app/config/model/account.dart';
 import 'package:order_food_app/config/repository/ibase_repository.dart';
 
 abstract class IAccountRepository extends IBaseRepository {
-  Future<Account?> createAccountModel(
-      {String email, String fullName, String id});
+  Future<Account?> createAccount(
+      {String email, String fullName, String password});
   Future<Account?> updateAccountModel(Account account);
   Future<List<Account>> getListAccountByKeyword(
     String keyword, {

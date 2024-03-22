@@ -6,6 +6,7 @@ import 'package:order_food_app/screen/login/login_screen.dart';
 import 'package:order_food_app/screen/onboarding/onboarding_screen.dart';
 import 'package:order_food_app/screen/preview_image/preview_image_page.dart';
 import 'package:order_food_app/screen/preview_image/preview_image_parameter.dart';
+import 'package:order_food_app/screen/signup/signup_screen.dart';
 
 import 'package:order_food_app/screen/splash/splash_screen.dart';
 
@@ -52,6 +53,10 @@ class AppRoute {
           return PreviewImagePage(
               parameter: state.extra as PreviewImageParameter);
         },
+      ),
+      GoRoute(
+        path: RouteName.SIGN_UP,
+        builder: (context, state) => SignUpScreen(),
       ),
     ],
   );

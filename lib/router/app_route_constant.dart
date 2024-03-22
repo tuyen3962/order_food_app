@@ -8,4 +8,6 @@ class RouteName {
   static const HOME = '/home';
 
   static const PREVIEW_IMAGE = '/preview_image';
+
+  static const SIGN_UP = '/sign_up';
 }

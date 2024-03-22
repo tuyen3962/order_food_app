@@ -16,6 +16,7 @@ class PrimaryButton extends StatelessWidget {
     this.isActive = true,
     this.icon,
     this.borderRadius = 1000,
+    this.isLoading = false,
   });
 
   final String text;
@@ -29,6 +30,7 @@ class PrimaryButton extends StatelessWidget {
   final bool isFullWidth;
   final bool isActive;
   final double borderRadius;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +50,31 @@ class PrimaryButton extends StatelessWidget {
                   : appTheme.primaryColor),
           borderRadius: BorderRadius.circular(borderRadius),
         ),
-        child: icon != null
-            ? Row(
-                mainAxisSize: isFullWidth ? MainAxisSize.max : MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  icon ?? const SizedBox(),
-                  Text(
+        child: isLoading
+            ? Center(
+                child: SizedBox(
+                    width: 20.w,
+                    height: 20.w,
+                    child: CircularProgressIndicator()))
+            : icon != null
+                ? Row(
+                    mainAxisSize:
+                        isFullWidth ? MainAxisSize.max : MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      icon ?? const SizedBox(),
+                      Text(
+                        text,
+                        style: TextStyle(
+                          fontSize: fontSize ?? 14.fontSize,
+                          color: textColor ??
+                              themeUtil.getAppTheme().primaryTextColor,
+                          fontWeight: weight ?? FontWeight.w700,
+                        ),
+                      ),
+                    ],
+                  )
+                : Text(
                     text,
                     style: TextStyle(
                       fontSize: fontSize ?? 14.fontSize,
@@ -63,16 +83,6 @@ class PrimaryButton extends StatelessWidget {
                       fontWeight: weight ?? FontWeight.w700,
                     ),
                   ),
-                ],
-              )
-            : Text(
-                text,
-                style: TextStyle(
-                  fontSize: fontSize ?? 14.fontSize,
-                  color: textColor ?? themeUtil.getAppTheme().primaryTextColor,
-                  fontWeight: weight ?? FontWeight.w700,
-                ),
-              ),
       ),
     );
   }

@@ -20,7 +20,7 @@ class UserCircleAvatar extends StatelessWidget {
         border: Border.all(color: appTheme.whiteText),
       ),
       child: CircleAvatarCustom(
-          imageUrl: account?.avatarUrl ?? '', size: size ?? 24.w),
+          imageUrl: account?.avatat ?? '', size: size ?? 24.w),
     );
   }
 }

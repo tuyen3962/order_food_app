@@ -1,13 +1,32 @@
 import 'dart:io';
+import 'package:order_food_app/config/constant/app_constant_key.dart';
 import 'package:order_food_app/config/model/account.dart';
 import 'package:order_food_app/config/repository/account/iaccount_repository.dart';
+import 'package:order_food_app/config/service/server_service.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AccountRepository extends IAccountRepository {
+  final ServerService serverService;
+  SupabaseClient get _client => serverService.supabaseClient;
+
+  AccountRepository({required this.serverService});
+
   @override
-  Future<Account?> createAccountModel(
-      {String email = '', String fullName = '', String id = ''}) {
-    // TODO: implement createAccountModel
-    throw UnimplementedError();
+  Future<Account?> createAccount(
+      {String email = '', String fullName = '', String password = ''}) async {
+    try {
+      final response =
+          await _client.auth.signUp(email: email, password: password);
+      if (response.user != null) {
+        final account =
+            Account(id: response.user!.id, email: email, fullName: fullName);
+        await _client.from(TABLE_NAME.USER).insert(account.toJson());
+        return account;
+      }
+      return null;
+    } catch (e) {
+      throw handleError(e);
+    }
   }
 
   @override

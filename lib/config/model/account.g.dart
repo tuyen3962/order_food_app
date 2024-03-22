@@ -7,21 +7,21 @@ part of 'account.dart';
 // **************************************************************************
 
 Account _$AccountFromJson(Map<String, dynamic> json) => Account(
-      uid: json['uid'] as String?,
-      fullName: json['full_name'] as String?,
+      id: json['id'] as String?,
+      fullName: json['fullname'] as String?,
       email: json['email'] as String?,
-      avatarUrl: json['avatar_url'] as String?,
-      phoneNumber: json['phone_number'] as String?,
+      avatat: json['avatar'] as String?,
+      phoneNumber: json['phone'] as String?,
       fcmToken: json['fcm_token'] as String?,
-      backgroundImage: json['background_image'] as String?,
+      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$AccountToJson(Account instance) => <String, dynamic>{
-      'uid': instance.uid,
-      'full_name': instance.fullName,
+      'id': instance.id,
+      'fullname': instance.fullName,
       'email': instance.email,
-      'avatar_url': instance.avatarUrl,
-      'phone_number': instance.phoneNumber,
+      'avatar': instance.avatat,
+      'phone': instance.phoneNumber,
       'fcm_token': instance.fcmToken,
-      'background_image': instance.backgroundImage,
+      'description': instance.description,
     };
